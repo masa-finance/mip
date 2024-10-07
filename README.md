@@ -10,7 +10,7 @@ MIPs are documents designed to introduce new features, processes, or changes to 
 
 To submit a new MIP:
 
-1. **Fork** this repository.
+1. **Clone** this repository.
 2. **Create** a new branch for your MIP.
 3. **Draft** your proposal using the [MIP template](MIP/mip_template.md).
 4. **Naming Convention**: `mip-<number>-<title>-<author>`
