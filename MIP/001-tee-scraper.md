@@ -1,4 +1,4 @@
-# MIP-#: Safeguard Miner-generated data with Enclaves
+# MIP-1: Safeguard Miner-generated data with Enclaves
 
 ## Preamble
 
