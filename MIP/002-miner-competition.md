@@ -105,7 +105,9 @@ add_tweet_id('5GhPY8W7PbsXimGf7HQTuXpRsPtrjvVcRkd8j8ddkFQ1wDEz', 170983590982460
 
 # Convert sets to lists for final representation
 tweets_by_hotkeys = {k: list(v) for k, v in self.tweets_by_hotkey.items()}
-print(tweets_by_hotkeys) # Output: {'5GhPY8W7PbsXimGf7HQTuXpRsPtrjvVcRkd8j8ddkFQ1wDEz': [17098359098246020, 17098359098246024]}
+print(tweets_by_hotkeys)
+
+# Output: {'5GhPY8W7PbsXimGf7HQTuXpRsPtrjvVcRkd8j8ddkFQ1wDEz': [17098359098246020, 17098359098246024]}
 ```
 
 ### 4. Reduce Randomness in Miner Selection and Querying
@@ -142,7 +144,3 @@ responses, miner_uids = await self.forward_request(
 ## Copyright
 
 This work is licensed under the Apache-2.0 License.
-
-```
-
-```
