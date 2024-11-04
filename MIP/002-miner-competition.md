@@ -111,13 +111,13 @@ We can test this implementation on our testnet by running a few validators along
        self.tweets_by_uid[hotkey].add(tweet_id)
 
    # Example usage
-   add_tweet_id('5GhPY8W7PbsXimGf7HQTuXpRsPtrjvVcRkd8j8ddkFQ1wDEz', 17098359098246020)
+   add_tweet_id('3', 17098359098246020)
 
    # Convert sets to lists for final representation
    tweets_by_uids = {k: list(v) for k, v in self.tweets_by_uid.items()}
    print(tweets_by_uids)
 
-   # Output: {'5GhPY8W7PbsXimGf7HQTuXpRsPtrjvVcRkd8j8ddkFQ1wDEz': [17098359098246020, 17098359098246024]}
+   # Output: {'3': [17098359098246020, 17098359098246024]}
    ```
 
 4. ### Reduce Randomness in Miner Selection and Querying
