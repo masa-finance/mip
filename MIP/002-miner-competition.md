@@ -38,7 +38,7 @@ It is important to remove the concept of a hard-coded cap on the work a miner ca
 
 4.  ### Reduce Randomness in Scoring
 
-    The current selection logic for scoring miners is random, which creates an unfair landscape for miner competition and emissions.Validators should iterate through the entire miner metagraph before repeating, which will reduce randomness in miner selection, and in turn emissions. Keep in mind each validator can still "randomly iterate", but they must exhaust the list of UIDs before repeating.
+    The current selection logic for scoring miners is random, which creates an unfair landscape for miner competition and emissions. Validators should iterate through the entire miner metagraph before repeating, which will reduce randomness in miner selection, and in turn emissions. Keep in mind each validator can still "randomly iterate", but they must exhaust the list of UIDs before repeating.
 
 5.  ### Increased Timeout
 
