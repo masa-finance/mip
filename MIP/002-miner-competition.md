@@ -83,18 +83,17 @@ We can test this implementation on our testnet by running a few validators along
    Derive a dynamic method for fetching trending queries. The validator will need to supply the miner(s) with queries that have enough volume to drive competition. The validator currently fetches `keywords` from `config/twitter.json` in the repository. We need to update [this function](https://github.com/masa-finance/masa-bittensor/blob/main/masa/validator/forwarder.py#L131-L147) to fetch a dynamic list of queries.
 
    ```python
-   async def fetch_twitter_config(self):
-       async with aiohttp.ClientSession() as session:
-           url = self.validator.config.neuron.twitter_config_url
-           async with session.get(url) as response:
-               if response.status == 200:
-                   configRaw = await response.text()
-                   config = json.loads(configRaw)
-                   self.validator.keywords = config["keywords"]
-                   self.validator.count = int(config["count"])
-               else:
-                   self.validator.keywords = ["crypto", "bitcoin", "masa"]
-                   self.validator.count = 3
+    async def fetch_twitter_queries(self):
+        try:
+            trending_queries = TrendingQueries().fetch()
+            self.validator.keywords = [
+                query["query"] for query in trending_queries[:10]  # top 10 trends
+            ]
+            bt.logging.info(f"Trending queries: {self.validator.keywords}")
+        except Exception as e:
+            # handle failed fetch - default to popular keywords
+            bt.logging.error(f"Error fetching trending queries: {e}")
+            self.validator.keywords = ["crypto", "btc", "eth"]
    ```
 
 3. ### Unique Tweets Per Miner
