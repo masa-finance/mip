@@ -122,6 +122,23 @@ Possible API endpoints for the masa-tee-scraper:
 - /decrypt - POST - to decrypt a message
   Decripts a message. Takes two parameters: the encrypted result and the encrypted request (both strings)
 
+#### Key Management and rotation
+
+The binary is expected to be signed with `ego`. `ego sign` can sign a binary by using a keypair. The keypair can be generated with OpenSSL, by running the following command:
+
+```bash
+openssl genrsa -out private.pem -3 3072
+```
+
+The public key can be shared with the oracle and the subnet, even if not strictly needed, and the private key should be kept secret.
+
+The public key can be used to verify that the binary is signed by the same authority.
+
+**Rotation** The keypair can be rotated by generating a new keypair and sharing the new public key with the oracle and the subnet, and generating a new binary signed with the new private key.
+
+**Attention**: When rotating keys the protocol version should be updated because the new binary will not be able to decrypt the data encrypted by the binaries which are signed by the old keys.
+
+The key used to sign the binary are used to derive the Enclave Product Key, which is used to encrypt and decrypt the results of the tee-worker's jobs.
 
 ### Considered alternatives
 
